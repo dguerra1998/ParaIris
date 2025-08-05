@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Para vos, amor</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente romántica -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    .font-romantic {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-pink-100 text-gray-800 flex items-center justify-center min-h-screen overflow-hidden" 
+  style="background-image: url('https://www.transparenttextures.com/patterns/hearts.png'); background-size: auto; background-repeat: repeat;">
+  
+  <!-- Carrusel -->
+  <div id="carousel" class="flex overflow-x-scroll snap-x snap-mandatory h-full w-full no-scrollbar">
+    
+    <!-- Slide 1 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-3xl font-romantic text-pink-600 mb-2">Feliz cumpleaños hermosa</h1>
+        <p class="text-base">Esto es apenas una parte de todo lo que me gustaría darte... cada detalle pensado con vos en el corazón.</p>
+		<p style=" font-size: 3rem; ">🎂️</p>
+		<p class="mt-4 text-xs italic text-gray-500" style=" font-size: 0.6rem; ">Desliza hacia la derecha</p>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-3xl font-romantic text-purple-600 mb-2">A través de mis ojos #1</h1>
+        <p class="text-base">Sé que nunca podrás verte con mis ojos, pero desde el primer día, así es como te veo yo...</p>
+        <p class="mt-4 text-xs italic text-gray-500">Sos muy adorable</p>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-3xl font-romantic text-blue-600 mb-2">Calma #2</h1>
+        <p class="text-base">Pensé en vos y en esos días en que todo se vuelve un poco más pesado. Esto es para que tengas un momento de calma, cuando lo necesites...</p>
+        <p class="mt-4 text-xs italic text-gray-500">Porque sé que esto te ayuda 🫂</p>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-3xl font-romantic text-red-500 mb-4">Atrevida #3</h1>
+        <p class="text-base">Otra cosa que vi y pensé en vos. Espero que te guste...</p>
+        <p class="mt-4 text-xs italic text-gray-500">Saquemos ideas 😏</p>
+      </div>
+    </section>
+	
+	<!-- Slide 5 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-3xl font-romantic text-purple-500 mb-4">Cupón #4</h1>
+        <p class="text-base">Este es un cupón que vale por un beso y un abrazo, te quiero mi princesa...</p>
+		<p style=" font-size: 5rem; ">🎟️</p>
+        <p class="mt-4 text-xs italic text-gray-500">Si lo usás ahora mejor</p>
+      </div>
+    </section>
+	
+	<!-- Slide 6 -->
+    <section class="flex-shrink-0 w-full h-full flex items-center justify-center snap-center p-6">
+      <div class="text-center max-w-xs bg-white rounded-2xl shadow-xl p-5 fade-in">
+        <h1 class="text-4xl font-romantic text-pink-600 mb-2">Te quiero mucho mi niña</h1>
+        <p class="mt-4 text-xs italic text-gray-500">Con mucho cariño; Diego, Luna y Eros ❤️</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Botón de música fijo -->
+  <button id="music-btn" class="fixed bottom-4 right-4 bg-pink-500 hover:bg-pink-600 text-white text-xs px-3 py-1 rounded-full shadow-md z-50">
+    🎶
+  </button>
+
+  <!-- Música de fondo -->
+  <audio id="bg-music" src="pink-sky.mp3" loop hidden></audio>
+
+  <!-- Corazoncitos flotando -->
+  <script>
+    const body = document.body;
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.innerText = '💖';
+      heart.style.position = 'fixed';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.fontSize = '24px';
+      heart.style.animation = 'float 4s linear forwards';
+      heart.style.zIndex = '10';
+	  heart.style.opacity = (Math.random() * 0.3 + 0.3).toFixed(2);
+      body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 500);
+
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+
+    musicBtn.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicBtn.innerText = '🔊';
+        }).catch(() => {
+          alert('No se pudo reproducir el audio automáticamente. Verificá los permisos del navegador.');
+        });
+      } else {
+        bgMusic.pause();
+        musicBtn.innerText = '🎶';
+      }
+    });
+  </script>
+
+</body>
+</html>
